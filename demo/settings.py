@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+from django.utils.translation import gettext_lazy as _
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -119,3 +120,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Paste expiration
+NPB_EXPIRATION_LENGTH = (
+    ('1h', _('1 hour')),
+    ('6h', _('6 hour')),
+    ('1d', _('1 day')),
+    ('1w', _('1 week')),
+    ('never', _('never')),
+)
+NPB_DEFAULT_EXPIRATION = '1d'

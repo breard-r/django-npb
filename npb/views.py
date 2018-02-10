@@ -1,6 +1,8 @@
 from django.views import generic
 from django.conf import settings
 from .models import Paste
+from .forms import PasteForm
+from .ip import get_client_ip
 
 
 _css_file_name = getattr(settings, 'NPB_CSS_CLASS', 'pygments.css')
@@ -18,4 +20,11 @@ class ShowPasteView(generic.DetailView):
 
 class CreatePasteView(generic.edit.CreateView):
     model = Paste
-    fields = ['is_private', 'lexer', 'title', 'content']
+    form_class = PasteForm
+
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            form.instance.author = self.request.user
+        form.instance.author_ip = get_client_ip(self.request)
+        form.instance.expire_on = form.get_expiration_date()
+        return super().form_valid(form)
