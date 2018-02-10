@@ -1,0 +1,11 @@
+{% extends "npb/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ paste.title }}{% endblock %}
+
+{% block content %}
+<div>
+    <h1>{{ paste.title }}</h1>
+    <pre>{{ paste.content }}</pre>
+</div>
+{% endblock %}

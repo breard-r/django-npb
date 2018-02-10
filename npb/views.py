@@ -1,6 +1,12 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.views import generic
+from .models import Paste
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the npb index.")
+class ShowPasteView(generic.DetailView):
+    model = Paste
+    context_object_name = 'paste'
+
+
+class CreatePasteView(generic.edit.CreateView):
+    model = Paste
+    fields = ['is_private', 'lexer', 'title', 'content']

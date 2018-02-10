@@ -1,5 +1,6 @@
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
+from django.urls import reverse
 from django.db import models
 from decouple import config
 import uuid
@@ -66,6 +67,9 @@ class Paste(models.Model):
         verbose_name=_('title')
     )
     content = models.TextField(verbose_name=_('content'))
+
+    def get_absolute_url(self):
+        return reverse('npb:show_paste', args=[str(self.uuid)])
 
     def __meta__(self):
         verbose_name = 'Paste'
