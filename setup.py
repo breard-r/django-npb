@@ -28,8 +28,8 @@ setup(
     keywords='django pastebin',
     packages=find_packages(exclude=['contrib', 'demo', 'docs', 'tests']),
     install_requires=[
-        'django',
-        'pygments',
+        'Django',
+        'Pygments',
         'pytimeparse',
     ],
     python_requires='~=3.3',
