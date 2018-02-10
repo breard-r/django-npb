@@ -131,3 +131,4 @@ NPB_EXPIRATION_LENGTH = (
     ('never', _('never')),
 )
 NPB_DEFAULT_EXPIRATION = '1d'
+NPB_DISABLE_LIST = False

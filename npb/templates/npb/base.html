@@ -1,4 +1,4 @@
-{% load static %}{% load i18n %}{% get_current_language as LANGUAGE_CODE %}<!doctype html>
+{% load static %}{% load i18n %}{% get_current_language as LANGUAGE_CODE %}{% load get_recent_pastes %}<!doctype html>
 <html lang="{{ LANGUAGE_CODE }}">
     <head>
         <meta charset="utf-8" />
@@ -36,6 +36,16 @@
             <section class="page-aside">
                 <div class="page-component">
                     <h2>{% trans 'Recent pastes' %}</h2>
+                    <ul>
+                        {% get_recent_pastes as recent_pastes %}
+                        {% for paste in recent_pastes %}
+                        <li>
+                            <a href="{% url 'npb:show_paste' paste.pk %}">{{ paste.title|default:"Untitled" }}</a>
+                        </li>
+                        {% empty %}
+                        <li>{% trans 'No pastes yet' %}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </section>
         </div>
