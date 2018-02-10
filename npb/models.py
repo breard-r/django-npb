@@ -63,7 +63,7 @@ class Paste(models.Model):
         max_length=128,
         choices=[(l[1][0], l[0]) for l in get_all_lexers()],
         blank=True,
-        verbose_name=_('lexer')
+        verbose_name=_('language')
     )
     title = models.CharField(
         max_length=256,
