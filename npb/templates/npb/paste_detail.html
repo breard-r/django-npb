@@ -1,11 +1,16 @@
 {% extends "npb/base.html" %}
+{% load static %}
 {% load i18n %}
+
+{% block headers %}
+<link rel="stylesheet" href="{% static css_file_name %}" />
+{% endblock %}
 
 {% block title %}{{ paste.title }}{% endblock %}
 
 {% block content %}
 <div>
     <h1>{{ paste.title }}</h1>
-    <pre>{{ paste.content }}</pre>
+    {{ paste.formated_content|safe }}
 </div>
 {% endblock %}

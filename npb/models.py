@@ -2,6 +2,9 @@ from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.urls import reverse
 from django.db import models
+from pygments.lexers import get_all_lexers, get_lexer_by_name
+from pygments.formatters import HtmlFormatter
+from pygments import highlight
 import uuid
 
 
@@ -56,6 +59,7 @@ class Paste(models.Model):
     )
     lexer = models.CharField(
         max_length=128,
+        choices=[(l[1][0], l[0]) for l in get_all_lexers()],
         blank=True,
         verbose_name=_('lexer')
     )
@@ -66,6 +70,12 @@ class Paste(models.Model):
         verbose_name=_('title')
     )
     content = models.TextField(verbose_name=_('content'))
+
+    def formated_content(self):
+        css_class = getattr(settings, 'NPB_CSS_CLASS', 'highlight')
+        lexer = get_lexer_by_name(self.lexer, stripall=True)
+        formatter = HtmlFormatter(linenos=True, cssclass=css_class)
+        return highlight(self.content, lexer, formatter)
 
     def get_absolute_url(self):
         return reverse('npb:show_paste', args=[str(self.uuid)])
