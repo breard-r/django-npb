@@ -4,12 +4,13 @@ from .models import Paste
 
 
 class PasteAdmin(admin.ModelAdmin):
-    list_display = [
+    list_display = (
         'uuid', 'title', 'created_on', 'expire_on',
         'author', 'lexer', 'exposure', 'is_removed'
-    ]
-    list_filter = ['exposure', 'is_removed']
-    search_fields = ['author_ip', 'lexer', 'title', 'content']
+    )
+    ordering = ('-created_on',)
+    list_filter = ('exposure', 'is_removed')
+    search_fields = ('author_ip', 'lexer', 'title', 'content')
     readonly_fields = ('author', 'author_ip', 'created_on', 'edited_on')
     fieldsets = [
         (_('Meta'), {'fields': [
