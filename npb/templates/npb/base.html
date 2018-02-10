@@ -1,11 +1,43 @@
-{% load i18n %}{% get_current_language as LANGUAGE_CODE %}<!doctype html>
+{% load static %}{% load i18n %}{% get_current_language as LANGUAGE_CODE %}<!doctype html>
 <html lang="{{ LANGUAGE_CODE }}">
     <head>
         <meta charset="utf-8" />
+        <link rel="stylesheet" href="{% static 'npb/npb.css' %}" />
         {% block headers %}{% endblock %}
         <title>{% block title %}{% endblock %}</title>
     </head>
     <body>
-        {% block content %}{% endblock %}
+        <header id="page-header">
+            <div class="page-header-ctn">
+                <div class="page-header-menu">
+                    <ul class="page-header-menu-lst">
+                        <li>
+                            <a href="{% url 'npb:index' %}">Django neo-paste</a>
+                        </li><li>
+                            <a href="{% url 'admin:index' %}">{% trans 'Admin pannel' %}</a>
+                        </li><li>
+                            <a href="https://github.com/breard-r/django-npb" target="_blank">{% trans 'Contribute' %}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="page-wrapper">
+            <section class="page-main">
+                <div class="page-component">
+                    {% block content %}{% endblock %}
+                </div>
+                <footer class="page-footer">
+                    <section>
+                        <a href="http://cecill.info/" target="_blank">{% trans 'License: CeCILL-B' %}</a>
+                    </section>
+                </footer>
+            </section>
+            <section class="page-aside">
+                <div class="page-component">
+                    <h2>{% trans 'Recent pastes' %}</h2>
+                </div>
+            </section>
+        </div>
     </body>
 </html>
