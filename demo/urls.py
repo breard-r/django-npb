@@ -14,11 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.views.generic.base import RedirectView
-from django.urls import include, path
+from django.conf.urls.i18n import i18n_patterns
+from django.urls import include, path, reverse_lazy
 from django.contrib import admin
 
+
+npb_index = reverse_lazy('npb_index')
+
 urlpatterns = [
-    path('', RedirectView.as_view(permanent=False, url='/npb/')),
+    path('', RedirectView.as_view(permanent=False, url=npb_index)),
+]
+
+urlpatterns += i18n_patterns(
+    path('', RedirectView.as_view(permanent=False, url=npb_index)),
     path('npb/', include('npb.urls')),
     path('admin/', admin.site.urls),
-]
+)
