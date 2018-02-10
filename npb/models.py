@@ -2,7 +2,6 @@ from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.urls import reverse
 from django.db import models
-from decouple import config
 import uuid
 
 
@@ -25,7 +24,7 @@ class Paste(models.Model):
         verbose_name=_('removal reason')
     )
     is_private = models.BooleanField(
-        default=config('NPB_DEFAULT_IS_PRIVATE', default=False, cast=bool),
+        default=getattr(settings, 'NPB_DEFAULT_IS_PRIVATE', False),
         verbose_name=_('private paste')
     )
     created_on = models.DateTimeField(
