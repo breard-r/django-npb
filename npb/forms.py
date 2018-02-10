@@ -25,7 +25,7 @@ DEFAULT_EXPIRATION = getattr(
 
 
 def _get_paste_form():
-    fields = ['is_private', 'lexer', 'title', 'content']
+    fields = ['content', 'title', 'lexer', 'exposure']
     form = model_forms.modelform_factory(Paste, fields=fields)
     return form
 
@@ -41,7 +41,7 @@ class PasteForm(BasePasteForm):
     )
 
     def get_expiration_date(self):
-        length = getattr(self.cleaned_data, 'expire', DEFAULT_EXPIRATION)
+        length = self.cleaned_data.get('expire', DEFAULT_EXPIRATION)
         delta_s = parse(length)
         if delta_s is None:
             return None

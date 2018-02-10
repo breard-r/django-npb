@@ -10,6 +10,13 @@ from pygments import highlight
 import uuid
 
 
+PASTE_EXPOSURES = (
+    ('public', _('public')),
+    ('unlisted', _('unlisted')),
+    ('private', _('private')),
+)
+
+
 class Paste(models.Model):
     uuid = models.UUIDField(
         primary_key=True,
@@ -28,9 +35,11 @@ class Paste(models.Model):
         blank=True,
         verbose_name=_('removal reason')
     )
-    is_private = models.BooleanField(
-        default=getattr(settings, 'NPB_DEFAULT_IS_PRIVATE', False),
-        verbose_name=_('private paste')
+    exposure = models.CharField(
+        max_length=16,
+        choices=PASTE_EXPOSURES,
+        default=getattr(settings, 'NPB_DEFAULT_EXPOSURE', 'public'),
+        verbose_name=_('exposure')
     )
     created_on = models.DateTimeField(
         auto_now_add=True,

@@ -5,15 +5,15 @@ from .models import Paste
 
 class PasteAdmin(admin.ModelAdmin):
     list_display = [
-        'uuid', 'title', 'created_on',
-        'author', 'lexer', 'is_private', 'is_removed'
+        'uuid', 'title', 'created_on', 'expire_on',
+        'author', 'lexer', 'exposure', 'is_removed'
     ]
-    list_filter = ['is_private', 'is_removed']
+    list_filter = ['exposure', 'is_removed']
     search_fields = ['author_ip', 'lexer', 'title', 'content']
     readonly_fields = ('author', 'author_ip', 'created_on', 'edited_on')
     fieldsets = [
         (_('Meta'), {'fields': [
-            'is_private', 'author', 'author_ip',
+            'exposure', 'author', 'author_ip',
             'created_on', 'edited_on', 'expire_on'
         ]}),
         (_('Paste'), {'fields': ['lexer', 'title', 'content']}),
