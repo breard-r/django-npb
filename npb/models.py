@@ -16,6 +16,9 @@ PASTE_EXPOSURES = (
     ('private', _('private')),
 )
 
+LEXERS = [('', _('auto detect'))]
+LEXERS += [(l[1][0], l[0]) for l in get_all_lexers()]
+
 
 class Paste(models.Model):
     uuid = models.UUIDField(
@@ -70,7 +73,7 @@ class Paste(models.Model):
     )
     lexer = models.CharField(
         max_length=128,
-        choices=[(l[1][0], l[0]) for l in get_all_lexers()],
+        choices=LEXERS,
         blank=True,
         verbose_name=_('language')
     )
