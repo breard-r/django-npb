@@ -16,6 +16,14 @@ PASTE_EXPOSURES = (
     ('private', _('private')),
 )
 
+REPORT_CATEGORIES = getattr(settings, 'NPB_REPORT_CATEGORIES', (
+    ('illicit', _('illicit content')),
+    ('explicit', _('explicit content')),
+    ('copyright', _('copyright infrigment')),
+    ('private', _('private information exposure')),
+    ('other', _('other')),
+))
+
 LEXERS = [('', _('auto detect'))]
 LEXERS += [(l[1][0], l[0]) for l in get_all_lexers()]
 
@@ -104,8 +112,57 @@ class Paste(models.Model):
         return reverse('npb:show_paste', args=[str(self.uuid)])
 
     def __meta__(self):
-        verbose_name = 'Paste'
-        verbose_name_plural = 'Pastes'
+        verbose_name = _('paste')
+        verbose_name_plural = _('pastes')
 
     def __str__(self):
         return '%s' % self.uuid
+
+
+class Report(models.Model):
+    reporter = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name=_('author')
+    )
+    reporter_email = models.EmailField(verbose_name=_('reporter\'s email'))
+    reporter_ip = models.GenericIPAddressField(
+        null=True,
+        blank=True,
+        verbose_name=_('reporter\'s IP address')
+    )
+    reported_on = models.DateTimeField(
+        auto_now_add=True,
+        blank=True,
+        verbose_name=_('reported on')
+    )
+    paste = models.ForeignKey(
+        Paste,
+        on_delete=models.CASCADE,
+        verbose_name=_('reported paste')
+    )
+    category = models.CharField(
+        max_length=16,
+        choices=REPORT_CATEGORIES,
+        verbose_name=_('category name')
+    )
+    reason = models.TextField(verbose_name=_('reason'))
+
+    def short_reason(self):
+        max_len = 32
+        short = self.reason[:max_len]
+        if len(self.reason) > max_len:
+            short += '…'
+        return short
+
+    def get_absolute_url(self):
+        return reverse('npb:show_paste', args=[str(self.paste.uuid)])
+
+    def __meta__(self):
+        verbose_name = _('report')
+        verbose_name_plural = _('reports')
+
+    def __str__(self):
+        return self.short_reason()

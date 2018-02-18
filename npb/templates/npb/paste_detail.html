@@ -11,6 +11,9 @@
 {% block content %}
 <div>
     <h1>{{ paste.title }}</h1>
+    <div>
+        <a href="{% url 'npb:report_paste' paste.uuid %}">{% trans 'report this paste' %}</a>
+    </div>
     {{ paste.formated_content|safe }}
 </div>
 {% endblock %}

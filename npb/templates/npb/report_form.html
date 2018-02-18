@@ -1,0 +1,17 @@
+{% extends "npb/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'Report paste' %}{% endblock %}
+
+{% block content %}
+<h1>{% trans 'Report paste' %}</h1>
+<div id="paste-form">
+    <form action="" method="post">
+        {% csrf_token %}
+        <table id="paste-form-table">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="{% trans 'Submit' %}" />
+    </form>
+</div>
+{% endblock %}

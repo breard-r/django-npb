@@ -5,7 +5,7 @@ from django.conf import settings
 from django import forms
 from pytimeparse import parse
 from datetime import timedelta
-from .models import Paste
+from .models import Paste, Report
 
 
 EXPIRATION_LENGTH = getattr(settings, 'NPB_EXPIRATION_LENGTH', (
@@ -29,8 +29,14 @@ def _get_paste_form():
     form = model_forms.modelform_factory(Paste, fields=fields)
     return form
 
+def _get_report_form():
+    fields = ['reporter_email', 'category', 'reason']
+    form = model_forms.modelform_factory(Report, fields=fields)
+    return form
+
 
 BasePasteForm = _get_paste_form()
+BaseReportForm = _get_report_form()
 
 
 class PasteForm(BasePasteForm):
@@ -48,3 +54,7 @@ class PasteForm(BasePasteForm):
         now = timezone.now()
         delta = timedelta(seconds=delta_s)
         return now + delta
+
+
+class ReportForm(BaseReportForm):
+    reporter_email = forms.EmailField(label=_('Your email'))
