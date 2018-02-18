@@ -63,7 +63,13 @@ class ReportAdmin(admin.ModelAdmin):
 
     def paste_admin_url(self, obj):
         return mark_safe('<a href="%(url)s">%(name)s</a>' % {
-            'url': reverse('admin:%s_%s_change' % (obj.paste._meta.app_label, obj.paste._meta.model_name), args=[obj.paste.uuid]),
+            'url': reverse(
+                'admin:%s_%s_change' % (
+                    obj.paste._meta.app_label,
+                    obj.paste._meta.model_name
+                ),
+                args=[obj.paste.uuid]
+            ),
             'name': _('view this paste in the admin panel')
         })
 

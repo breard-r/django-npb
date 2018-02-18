@@ -1,7 +1,8 @@
-{% load static %}{% load i18n %}{% get_current_language as LANGUAGE_CODE %}{% load get_recent_pastes %}<!doctype html>
+{% load static %}{% load i18n %}{% get_current_language as LANGUAGE_CODE %}{% load recent_pastes %}<!doctype html>
 <html lang="{{ LANGUAGE_CODE }}">
     <head>
         <meta charset="utf-8" />
+        <link rel="stylesheet" href="{% static 'npb/reset.css' %}" />
         <link rel="stylesheet" href="{% static 'npb/npb.css' %}" />
         {% block headers %}{% endblock %}
         <title>{% block title %}{% endblock %}</title>
@@ -12,7 +13,7 @@
                 <div class="page-header-menu">
                     <ul class="page-header-menu-lst">
                         <li>
-                            <a href="{% url 'npb:index' %}">Django neo-paste</a>
+                            <a href="{% url 'npb:index' %}">Django neo-pastebin</a>
                         </li><li>
                             <a href="{% url 'admin:index' %}">{% trans 'Admin pannel' %}</a>
                         </li><li>
@@ -34,25 +35,33 @@
                     {% endif %}
                     {% block content %}{% endblock %}
                 </div>
-                <footer class="page-footer">
-                    <section>
-                        <a href="http://cecill.info/" target="_blank">{% trans 'License: CeCILL-B' %}</a>
-                    </section>
-                </footer>
             </section>
             <section class="page-aside">
+                {% recent_pastes_activated as has_recent_paste %}
+                {% if has_recent_paste %}
                 <div class="page-component">
                     <h2>{% trans 'Recent pastes' %}</h2>
                     <ul>
-                        {% get_recent_pastes as recent_pastes %}
-                        {% for paste in recent_pastes %}
+                        {% recent_pastes as recent_pastes_list %}
+                        {% for paste in recent_pastes_list %}
                         <li>
-                            <a href="{% url 'npb:show_paste' paste.pk %}">{{ paste.title|default:"Untitled" }}</a>
+                            <a class="biglist" href="{% url 'npb:show_paste' paste.pk %}">
+                                {% trans "Untitled" as untitled %}
+                                <span>{{ paste.title|default:untitled }}</span>
+                                <span class="biglist-legend">{{ paste.created_on }}</span>
+                            </a>
                         </li>
                         {% empty %}
                         <li>{% trans 'No pastes yet' %}</li>
                         {% endfor %}
                     </ul>
+                </div>
+                {% endif %}
+                <div class="page-component">
+                    <p class="license">
+                    {% blocktrans %}Django neo-pastebin is a free software available under the <a href="http://cecill.info/" target="_blank">CeCILL-B</a> license.<br />
+                    You are free to use, edit and redistribute this software provided you properly mention the original author.{% endblocktrans %}
+                    </p>
                 </div>
             </section>
         </div>

@@ -93,6 +93,9 @@ class Paste(models.Model):
     )
     content = models.TextField(verbose_name=_('content'))
 
+    def edited(self):
+        return True
+
     def formated_content(self):
         css_class = getattr(settings, 'NPB_CSS_CLASS', 'highlight')
         tabsize = getattr(settings, 'NPB_TAB_SIZE', 4)

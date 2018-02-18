@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static css_file_name %}" />
 {% endblock %}
 
-{% block title %}{{ paste.title }}{% endblock %}
+{% block title %}{% trans "Untitled" as untitled %}{{ paste.title|default:untitled }}{% endblock %}
 
 {% block content %}
 <div>
@@ -14,9 +14,26 @@
     <h1>{% trans 'This paste has been suspended.' %}</h1>
     <p>{{ paste.suspension_reason }}</p>
     {% else %}
-    <h1>{{ paste.title }}</h1>
-    <div>
-        <a href="{% url 'npb:report_paste' paste.uuid %}">{% trans 'report this paste' %}</a>
+    {% trans "Untitled" as untitled %}
+    <h1>{{ paste.title|default:untitled }}</h1>
+
+    <p class="legend">
+    {% trans "anonymous" as anonymous %}
+    {% blocktrans with author=paste.author|default:anonymous date=paste.created_on %}By {{ author }} on {{ date }}{% endblocktrans %}
+
+    {% if paste.edited %}
+    <br />
+    {% blocktrans with date=paste.edited_on %}Edited on {{ date }}{% endblocktrans %}
+    {% endif %}
+
+    {% if paste.expire_on %}
+    <br />
+    {% blocktrans with date=paste.expire_on %}Expires on {{ date }}{% endblocktrans %}
+    {% endif %}
+    </p>
+
+    <div class="report-link">
+        <a href="{% url 'npb:report_paste' paste.uuid %}">{% trans 'report this paste'|capfirst %}</a>
     </div>
     {{ paste.formated_content|safe }}
     {% endif %}
