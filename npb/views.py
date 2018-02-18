@@ -25,6 +25,15 @@ class CreatePasteView(generic.edit.CreateView):
     model = Paste
     form_class = PasteForm
 
+    def get_form_class(self):
+        form = super().get_form_class()
+        if not self.request.user.is_authenticated:
+            form.base_fields['exposure'].widget.choices = [
+                c for c in form.base_fields['exposure'].widget.choices
+                if c[0] != 'private'
+            ]
+        return form
+
     def form_valid(self, form):
         if self.request.user.is_authenticated:
             form.instance.author = self.request.user
