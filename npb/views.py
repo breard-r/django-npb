@@ -21,8 +21,8 @@ class ShowPasteView(generic.DetailView):
         restricted = all([
             paste.exposure == 'private',
             paste.author != self.request.user,
-            self.request.user.is_superuser != True,
-            self.request.user.is_staff != True
+            not self.request.user.is_superuser,
+            not self.request.user.is_staff
         ])
         if restricted:
             raise Http404()
