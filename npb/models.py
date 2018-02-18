@@ -7,6 +7,7 @@ from pygments.lexers import (
     get_all_lexers, get_lexer_by_name, guess_lexer
 )
 from pygments import highlight
+from datetime import timedelta
 import uuid
 
 
@@ -94,7 +95,11 @@ class Paste(models.Model):
     content = models.TextField(verbose_name=_('content'))
 
     def edited(self):
-        return True
+        delta = self.edited_on - self.created_on
+        tolerance = timedelta(
+            seconds=getattr(settings, 'NPB_EDIT_TOLERANCE', 1)
+        )
+        return delta > tolerance
 
     def formated_content(self):
         css_class = getattr(settings, 'NPB_CSS_CLASS', 'highlight')
