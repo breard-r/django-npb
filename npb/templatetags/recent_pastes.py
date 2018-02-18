@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.utils import timezone
 from django.conf import settings
 from django import template
@@ -15,9 +16,13 @@ def recent_pastes(context):
         return []
     qs = Paste.objects.filter(
         is_suspended=False,
-        exposure='public',
         expire_on__gte=timezone.now()
-    ).order_by('-created_on')[:limit]
+    )
+    if context.request.user.is_authenticated:
+        qs = qs.filter(Q(exposure='public') | Q(author=context.request.user))
+    else:
+        qs = qs.filter(exposure='public')
+    qs = qs.order_by('-created_on')[:limit]
     return qs
 
 
