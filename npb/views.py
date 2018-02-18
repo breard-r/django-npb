@@ -2,6 +2,7 @@ from django.utils.translation import gettext_lazy as _
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.views import generic
+from django.http import Http404
 from django.conf import settings
 from .models import Paste, Report
 from .forms import PasteForm, ReportForm
@@ -14,6 +15,18 @@ _css_file_name = getattr(settings, 'NPB_CSS_CLASS', 'pygments.css')
 class ShowPasteView(generic.DetailView):
     model = Paste
     context_object_name = 'paste'
+
+    def get_object(self, queryset=None):
+        paste = super().get_object(queryset=queryset)
+        restricted = all([
+            paste.exposure == 'private',
+            paste.author != self.request.user,
+            self.request.user.is_superuser != True,
+            self.request.user.is_staff != True
+        ])
+        if restricted:
+            raise Http404()
+        return paste
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
