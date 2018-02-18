@@ -12,7 +12,7 @@ def get_recent_pastes(context):
     if getattr(settings, 'NPB_DISABLE_LIST', False):
         return []
     qs = Paste.objects.filter(
-        is_removed=False,
+        is_suspended=False,
         exposure='public',
         expire_on__gte=timezone.now()
     ).order_by('-created_on')[:10]

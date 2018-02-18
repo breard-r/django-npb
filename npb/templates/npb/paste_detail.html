@@ -10,10 +10,15 @@
 
 {% block content %}
 <div>
+    {% if paste.is_suspended %}
+    <h1>{% trans 'This paste has been suspended.' %}</h1>
+    <p>{{ paste.suspension_reason }}</p>
+    {% else %}
     <h1>{{ paste.title }}</h1>
     <div>
         <a href="{% url 'npb:report_paste' paste.uuid %}">{% trans 'report this paste' %}</a>
     </div>
     {{ paste.formated_content|safe }}
+    {% endif %}
 </div>
 {% endblock %}

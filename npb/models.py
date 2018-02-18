@@ -35,16 +35,16 @@ class Paste(models.Model):
         editable=False,
         verbose_name=_('identifier')
     )
-    is_removed = models.BooleanField(
+    is_suspended = models.BooleanField(
         default=False,
         blank=True,
-        verbose_name=_('removed paste')
+        verbose_name=_('suspended paste')
     )
-    removal_reason = models.CharField(
+    suspension_reason = models.CharField(
         max_length=512,
         default='',
         blank=True,
-        verbose_name=_('removal reason')
+        verbose_name=_('suspension reason')
     )
     exposure = models.CharField(
         max_length=16,
