@@ -44,5 +44,8 @@ class CreateReportView(generic.edit.CreateView):
         if self.request.user.is_authenticated:
             form.instance.reporter = self.request.user
         form.instance.reporter_ip = get_client_ip(self.request)
-        messages.info(self.request, _('Your report has been sent to an administrator.'))
+        messages.info(
+            self.request,
+            _('Your report has been sent to an administrator.')
+        )
         return super().form_valid(form)

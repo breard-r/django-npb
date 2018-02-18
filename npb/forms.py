@@ -29,6 +29,7 @@ def _get_paste_form():
     form = model_forms.modelform_factory(Paste, fields=fields)
     return form
 
+
 def _get_report_form():
     fields = ['reporter_email', 'category', 'reason']
     form = model_forms.modelform_factory(Report, fields=fields)
