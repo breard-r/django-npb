@@ -238,6 +238,17 @@ input[type=text], input[type=email], select {
     padding: 10px 0 10px 0;
 }
 
+input[type=submit] {
+    margin: 10px 10px 10px 150px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+}
+
+input[type=submit]:hover, select:hover {
+    cursor: pointer;
+}
+
 #id_content {
     height: 400px;
 }
