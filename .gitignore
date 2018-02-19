@@ -40,6 +40,9 @@ nosetests.xml
 # pipenv custom environment variables
 .env
 
+# Sphinx builds
+_build
+
 # SQLite databases
 *.sqlite3
 *.sql

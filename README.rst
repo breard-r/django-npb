@@ -15,13 +15,8 @@ Pastebin module for Django.
     :target: http://cecill.info/index.en.html
     :alt: CeCILL-B license
 
-License
--------
+---------------
 
-This software is governed by the CeCILL-B_ license under French law and
-abiding by the rules of distribution of free software. You can use,
-modify and/ or redistribute the software under the terms of the CeCILL-B_
-license as circulated by CEA, CNRS and INRIA at the following URL
-"http://www.cecill.info".
+Django neo-pastebin, also known as NPB, is a text storage module for the `Django framework`_. It is designed to be easily integrated into your website and customizable.
 
-.. _CeCILL-B: http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html
+.. _Django framework: https://www.djangoproject.com/
