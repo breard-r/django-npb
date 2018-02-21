@@ -3,6 +3,10 @@ Django neo-pastebin
 
 Pastebin module for Django.
 
+.. image:: https://readthedocs.org/projects/django-npb/badge/?version=latest
+    :target: http://django-npb.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
 .. image:: https://img.shields.io/pypi/status/django-npb.svg
     :target: https://pypi.python.org/pypi/django-npb
     :alt: Project status
