@@ -5,10 +5,9 @@ Configuration options
 
 The following configuration variables may be set in your project's settings.py file.
 
-NPB_CSS_CLASS
-~~~~~~~~~~~~~
 
-Name of the generated CSS file for syntax highlighting.
+Common settings
+---------------
 
 NPB_DEFAULT_EXPIRATION
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -84,6 +83,15 @@ Defines how NPB must use the X-Forwarded-For HTTP header. The value must be one 
 * "last": Use the last IP listed as the end-user's one.
 
 Default is "none".
+
+
+Development settings
+--------------------
+
+NPB_CSS_CLASS
+~~~~~~~~~~~~~
+
+Name of the generated CSS file for syntax highlighting.
 
 
 .. _pytimeparse: https://pypi.python.org/pypi/pytimeparse
