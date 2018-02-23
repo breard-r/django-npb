@@ -11,6 +11,7 @@ Navigation
 
     quickstart.rst
     config.rst
+    customize.rst
     license.rst
 
 
