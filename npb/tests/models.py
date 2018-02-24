@@ -1,7 +1,7 @@
 from django.utils import timezone
 from django.conf import settings
 from django.test import TestCase
-from .models import Paste, Report
+from ..models import Paste, Report
 import datetime
 
 
