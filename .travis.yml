@@ -1,0 +1,26 @@
+language: python
+
+python:
+    - "3.4"
+    - "3.5"
+    - "3.6"
+    - "3.6-dev"
+    - "3.7-dev"
+    - "nightly"
+    - "pypy3.5"
+
+env:
+    - DJANGO_VERSION=2.0
+
+matrix:
+    allow_failures:
+        - python: "3.6-dev"
+        - python: "3.7-dev"
+        - python: "nightly"
+
+install:
+    - pip install -q Django==$DJANGO_VERSION
+    - pip install -q pygments pytimeparse
+
+script:
+    - python manage.py test npb
