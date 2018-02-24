@@ -167,6 +167,3 @@ texinfo_documents = [
      author, 'Djangoneo-pastebin', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-
