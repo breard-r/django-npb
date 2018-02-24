@@ -6,6 +6,17 @@
 If you find a bug in this project, please [open an issue](https://github.com/breard-r/django-npb/issues) and describe the problem. When reporting a bug, please follow the generic [bug reporting recommendations](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html).
 
 
+## Translating
+
+
+You know a language not yet supported and want to add it? You can improve the current supported translations? Please contribute!
+If you know git and python development, you can read [Django's localization howto](https://docs.djangoproject.com/en/2.0/topics/i18n/translation/#localization-how-to-create-language-files) and open a pull request. If you don't, please [open an issue](https://github.com/breard-r/django-npb/issues) where you paste a translated [language file](https://github.com/breard-r/django-npb/blob/master/npb/locale/en/LC_MESSAGES/django.po).
+
+## Writing tests
+
+This project would use more tests, for example about permissions. If you are interested in writing tests, please open a pull request.
+
+
 ## Pull requests
 
 When submitting code, please follow the following guidelines:
