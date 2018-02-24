@@ -1,0 +1,279 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-24 14:37+0100\n"
+"PO-Revision-Date: 2018-02-24 14:37+0100\n"
+"Last-Translator: Rodolphe Bréard <rodolphe@what.tf>\n"
+"Language-Team: Rodolphe Bréard <rodolphe@what.tf>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: admin.py:19 admin.py:48
+msgid "Meta"
+msgstr "Méta"
+
+#: admin.py:23 admin.py:52
+msgid "Paste"
+msgstr "Note"
+
+#: admin.py:24
+msgid "Administration"
+msgstr "Administration"
+
+#: admin.py:73
+msgid "view this paste in the admin panel"
+msgstr "voir cette note dans l'outil d'administration"
+
+#: admin.py:83
+msgid "not suspended"
+msgstr "non suspendu"
+
+#: admin.py:85
+#, python-format
+msgid "paste suspended: %(reason)s"
+msgstr "note suspendue: %(reason)s"
+
+#: forms.py:12
+msgid "15 minutes"
+msgstr "15 minutes"
+
+#: forms.py:13
+msgid "1 hour"
+msgstr "1 heure"
+
+#: forms.py:14
+msgid "1 day"
+msgstr "1 jour"
+
+#: forms.py:15
+msgid "1 week"
+msgstr "1 semaine"
+
+#: forms.py:16
+msgid "30 days"
+msgstr "30 jours"
+
+#: forms.py:17
+msgid "365 days"
+msgstr "365 jours"
+
+#: forms.py:18
+msgid "never"
+msgstr "jamais"
+
+#: forms.py:45
+msgid "expiration"
+msgstr "Expiration"
+
+#: forms.py:61
+msgid "Your email"
+msgstr "Votre email"
+
+#: models.py:15
+msgid "public"
+msgstr "publique"
+
+#: models.py:16
+msgid "unlisted"
+msgstr "non-listée"
+
+#: models.py:17
+msgid "private"
+msgstr "privée"
+
+#: models.py:21
+msgid "illicit content"
+msgstr "contenu illicite"
+
+#: models.py:22
+msgid "explicit content"
+msgstr "contenu choquant"
+
+#: models.py:23
+msgid "copyright infrigment"
+msgstr "infraction au droit d'auteur"
+
+#: models.py:24
+msgid "private information exposure"
+msgstr "publication d'informations privées"
+
+#: models.py:25
+msgid "other"
+msgstr "autre"
+
+#: models.py:28
+msgid "auto detect"
+msgstr "détection automatique"
+
+#: models.py:37
+msgid "identifier"
+msgstr "identifiant"
+
+#: models.py:42
+msgid "suspended paste"
+msgstr "note suspendue"
+
+#: models.py:48
+msgid "suspension reason"
+msgstr "raison de la suspension"
+
+#: models.py:54
+msgid "exposure"
+msgstr "exposition"
+
+#: models.py:59
+msgid "created on"
+msgstr "créée le"
+
+#: models.py:64
+msgid "edited on"
+msgstr "éditée le"
+
+#: models.py:69
+msgid "expiration date"
+msgstr "date d'expiration"
+
+#: models.py:76 models.py:137
+msgid "author"
+msgstr "auteur"
+
+#: models.py:81
+msgid "author's IP address"
+msgstr "adresse IP de l'auteur"
+
+#: models.py:87
+msgid "language"
+msgstr "langage"
+
+#: models.py:93
+msgid "title"
+msgstr "titre"
+
+#: models.py:95
+msgid "content"
+msgstr "contenu"
+
+#: models.py:124
+msgid "paste"
+msgstr "note"
+
+#: models.py:125
+msgid "pastes"
+msgstr "notes"
+
+#: models.py:139
+msgid "reporter's email"
+msgstr "adresse email du signalant"
+
+#: models.py:143
+msgid "reporter's IP address"
+msgstr "adresse IP du signalant"
+
+#: models.py:148
+msgid "reported on"
+msgstr "signalée le"
+
+#: models.py:153
+msgid "reported paste"
+msgstr "note signalée"
+
+#: models.py:158
+msgid "category name"
+msgstr "Catégorie"
+
+#: models.py:160
+msgid "reason"
+msgstr "raison"
+
+#: models.py:173
+msgid "report"
+msgstr "signalement"
+
+#: models.py:174
+msgid "reports"
+msgstr "signalements"
+
+#: templates/npb/base.html:16 templates/npb/paste_form.html:4
+#: templates/npb/paste_form.html:7
+msgid "New paste"
+msgstr "Nouvelle note"
+
+#: templates/npb/base.html:18
+msgid "Admin pannel"
+msgstr "Panneau d'administration"
+
+#: templates/npb/base.html:20
+msgid "Contribute"
+msgstr "Contribuer"
+
+#: templates/npb/base.html:43
+msgid "Recent pastes"
+msgstr "Notes récentes"
+
+#: templates/npb/base.html:49 templates/npb/paste_detail.html:9
+#: templates/npb/paste_detail.html:17
+msgid "Untitled"
+msgstr "Sans titre"
+
+#: templates/npb/base.html:55
+msgid "No pastes yet"
+msgstr "Aucune note à afficher"
+
+#: templates/npb/base.html:62
+msgid ""
+"Django neo-pastebin is a free software available under the <a href=\"http://"
+"cecill.info/\" target=\"_blank\">CeCILL-B</a> license.<br />\n"
+"                    You are free to use, edit and redistribute this software "
+"provided you properly mention the original author."
+msgstr ""
+"Django neo-pastebin est un logiciel libre disponible sous la licence <a href"
+"=\"http://cecill.info/\" target=\"_blank\">CeCILL-B</a>.<br />\n"
+"Vous êtes libre d'utiliser, modifier et redistribuer ce logiciel sous réserve "
+"de correctement citer l'auteur d'origine."
+
+#: templates/npb/paste_detail.html:14
+msgid "This paste has been suspended."
+msgstr "Cette note a été suspendue"
+
+#: templates/npb/paste_detail.html:21
+msgid "anonymous"
+msgstr "anonyme"
+
+#: templates/npb/paste_detail.html:22
+#, python-format
+msgid "By %(author)s on %(date)s"
+msgstr "Par %(author)s le %(date)s"
+
+#: templates/npb/paste_detail.html:26
+#, python-format
+msgid "Edited on %(date)s"
+msgstr "Éditée le %(date)s"
+
+#: templates/npb/paste_detail.html:31
+#, python-format
+msgid "Expires on %(date)s"
+msgstr "Expire le %(date)s"
+
+#: templates/npb/paste_detail.html:36
+msgid "report this paste"
+msgstr "signaler cette note"
+
+#: templates/npb/paste_form.html:14 templates/npb/report_form.html:14
+msgid "Submit"
+msgstr "Envoyer"
+
+#: templates/npb/report_form.html:4 templates/npb/report_form.html:7
+msgid "Report paste"
+msgstr "Signalement d'une note"
+
+#: views.py:55
+msgid "Your paste has been created."
+msgstr "Votre note a été créée."
+
+#: views.py:71
+msgid "Your report has been sent to an administrator."
+msgstr "Votre signalement a été envoyé à un administrateur."
