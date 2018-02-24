@@ -27,4 +27,13 @@ Pastebin module for Django.
 
 Django neo-pastebin, also known as NPB, is a text storage module for the `Django framework`_. It is designed to be easily integrated into your website and customizable.
 
+
+Internationalization
+--------------------
+
+Supported languages are:
+
+* ``en``: English (generic)
+* ``fr``: French (generic)
+
 .. _Django framework: https://www.djangoproject.com/
