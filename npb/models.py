@@ -95,10 +95,11 @@ class Paste(models.Model):
     content = models.TextField(verbose_name=_('content'))
 
     def edited(self):
+        tolerance_setting = getattr(settings, 'NPB_EDIT_TOLERANCE', 1)
+        if tolerance_setting < 0:
+            return True
         delta = self.edited_on - self.created_on
-        tolerance = timedelta(
-            seconds=getattr(settings, 'NPB_EDIT_TOLERANCE', 1)
-        )
+        tolerance = timedelta(seconds=tolerance_setting)
         return delta > tolerance
 
     def formated_content(self):
