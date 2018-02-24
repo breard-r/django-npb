@@ -9,7 +9,7 @@ with open(path.join(base_dir, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='django-npb',
-    version='0.1.0.dev1',
+    version='1.0.0',
     description='Pastebin module for Django',
     long_description=long_description,
     url='https://github.com/breard-r/django-npb',
@@ -17,7 +17,7 @@ setup(
     author_email='rodolphe@breard.tf',
     license='CeCILL-B',
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 5 - Production/Stable',
         'Framework :: Django',
         'Framework :: Django :: 2.0',
         'License :: CeCILL-B Free Software License Agreement (CECILL-B)',
