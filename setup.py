@@ -33,6 +33,14 @@ setup(
     ],
     keywords='django pastebin',
     packages=find_packages(exclude=['contrib', 'demo', 'docs', 'tests']),
+    package_data={
+        'npb': [
+            'locale/*/LC_MESSAGES/django.po',
+            'locale/*/LC_MESSAGES/django.mo',
+            'static/npb/*.css',
+            'templates/npb/*.html',
+        ],
+    },
     install_requires=[
         'Django',
         'Pygments',
