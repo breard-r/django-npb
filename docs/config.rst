@@ -9,6 +9,11 @@ The following configuration variables may be set in your project's settings.py f
 Common settings
 ---------------
 
+NPB_ALLOW_ANONYMOUS
+~~~~~~~~~~~~~~~~~~~
+
+Define whether or not anonymous users are allowed to post. Default is "False".
+
 NPB_DEFAULT_EXPIRATION
 ~~~~~~~~~~~~~~~~~~~~~~
 
