@@ -53,6 +53,11 @@ Set the allowed expiration duration. It is a list of tuples where the first elem
         ('never', _('never')),
     ]
 
+NPB_LOGIN_REDIRECT
+~~~~~~~~~~~~~~~~~~
+
+If "NPB_ALLOW_ANONYMOUS" is "False", define whether or not anonymous users should be redirected to the login page ("True") or get a permission denied error ("False"). Default is "True".
+
 NPB_PASTES_LIST_MAX
 ~~~~~~~~~~~~~~~~~~~
 

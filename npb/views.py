@@ -1,5 +1,5 @@
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.utils.translation import gettext_lazy as _
-from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.views import generic
@@ -35,15 +35,14 @@ class ShowPasteView(generic.DetailView):
         return context
 
 
-class CreatePasteView(generic.edit.CreateView):
+class CreatePasteView(UserPassesTestMixin, generic.edit.CreateView):
     model = Paste
     form_class = PasteForm
+    raise_exception = not getattr(settings, 'NPB_LOGIN_REDIRECT', True)
 
-    def dispatch(self, request):
+    def test_func(self):
         allow_anon = getattr(settings, 'NPB_ALLOW_ANONYMOUS', False)
-        if not self.request.user.is_authenticated and not allow_anon:
-            raise PermissionDenied()
-        return super().dispatch(request)
+        return self.request.user.is_authenticated or allow_anon
 
     def get_form_class(self):
         form = super().get_form_class()
