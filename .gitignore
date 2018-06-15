@@ -37,7 +37,8 @@ nosetests.xml
 # Translations
 *.mo
 
-# pipenv custom environment variables
+# Pipenv
+Pipfile.lock
 .env
 
 # Sphinx builds
@@ -49,3 +50,7 @@ _build
 
 # Shell scripts
 *.sh
+
+# Demo test project
+manage.py
+demo
