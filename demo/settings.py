@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 from django.utils.translation import gettext_lazy as _
+from base64 import b64encode
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -21,7 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "$k&!-!b#s@ap6b62*$fz#yhwugi32s4^yge-o(%@%)z1y=mf0v"
+# This is a demo app, it should not be used in production. Instead, create your own project which depends on npb.
+SECRET_KEY = b64encode(os.urandom(42)).decode("utf-8")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
