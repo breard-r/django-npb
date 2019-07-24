@@ -5,8 +5,8 @@ from npb.models import Paste
 
 
 class Command(BaseCommand):
-    help = 'Purge expired and removed pastes'
+    help = "Purge expired and removed pastes"
 
     def handle(self, *args, **options):
         Paste.objects.filter(expire_on__lt=timezone.now()).delete()
-        self.stdout.write(self.style.SUCCESS('Pastes purged.'))
+        self.stdout.write(self.style.SUCCESS("Pastes purged."))

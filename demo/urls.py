@@ -19,14 +19,12 @@ from django.urls import include, path, reverse_lazy
 from django.contrib import admin
 
 
-npb_index = reverse_lazy('npb:index')
+npb_index = reverse_lazy("npb:index")
 
-urlpatterns = [
-    path('', RedirectView.as_view(permanent=False, url=npb_index)),
-]
+urlpatterns = [path("", RedirectView.as_view(permanent=False, url=npb_index))]
 
 urlpatterns += i18n_patterns(
-    path('', RedirectView.as_view(permanent=False, url=npb_index)),
-    path('paste/', include('npb.urls', namespace='npb')),
-    path('admin/', admin.site.urls),
+    path("", RedirectView.as_view(permanent=False, url=npb_index)),
+    path("paste/", include("npb.urls", namespace="npb")),
+    path("admin/", admin.site.urls),
 )

@@ -10,46 +10,49 @@ from .forms import PasteForm, ReportForm
 from .ip import get_client_ip
 
 
-_css_file_name = getattr(settings, 'NPB_CSS_CLASS', 'pygments.css')
+_css_file_name = getattr(settings, "NPB_CSS_CLASS", "pygments.css")
 
 
 class ShowPasteView(generic.DetailView):
     model = Paste
-    context_object_name = 'paste'
+    context_object_name = "paste"
 
     def get_object(self, queryset=None):
         paste = super().get_object(queryset=queryset)
-        restricted = all([
-            paste.exposure == 'private',
-            paste.author != self.request.user,
-            not self.request.user.is_superuser,
-            not self.request.user.is_staff
-        ])
+        restricted = all(
+            [
+                paste.exposure == "private",
+                paste.author != self.request.user,
+                not self.request.user.is_superuser,
+                not self.request.user.is_staff,
+            ]
+        )
         if restricted:
             raise Http404()
         return paste
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['css_file_name'] = 'npb/%s' % _css_file_name
+        context["css_file_name"] = "npb/%s" % _css_file_name
         return context
 
 
 class CreatePasteView(UserPassesTestMixin, generic.edit.CreateView):
     model = Paste
     form_class = PasteForm
-    raise_exception = not getattr(settings, 'NPB_LOGIN_REDIRECT', True)
+    raise_exception = not getattr(settings, "NPB_LOGIN_REDIRECT", True)
 
     def test_func(self):
-        allow_anon = getattr(settings, 'NPB_ALLOW_ANONYMOUS', False)
+        allow_anon = getattr(settings, "NPB_ALLOW_ANONYMOUS", False)
         return self.request.user.is_authenticated or allow_anon
 
     def get_form_class(self):
         form = super().get_form_class()
         if not self.request.user.is_authenticated:
-            form.base_fields['exposure'].widget.choices = [
-                c for c in form.base_fields['exposure'].widget.choices
-                if c[0] != 'private'
+            form.base_fields["exposure"].widget.choices = [
+                c
+                for c in form.base_fields["exposure"].widget.choices
+                if c[0] != "private"
             ]
         return form
 
@@ -58,7 +61,7 @@ class CreatePasteView(UserPassesTestMixin, generic.edit.CreateView):
             form.instance.author = self.request.user
         form.instance.author_ip = get_client_ip(self.request)
         form.instance.expire_on = form.get_expiration_date()
-        messages.info(self.request, _('Your paste has been created.'))
+        messages.info(self.request, _("Your paste has been created."))
         return super().form_valid(form)
 
 
@@ -67,13 +70,10 @@ class CreateReportView(generic.edit.CreateView):
     form_class = ReportForm
 
     def form_valid(self, form):
-        paste = get_object_or_404(Paste, pk=self.kwargs.get('pk'))
+        paste = get_object_or_404(Paste, pk=self.kwargs.get("pk"))
         form.instance.paste = paste
         if self.request.user.is_authenticated:
             form.instance.reporter = self.request.user
         form.instance.reporter_ip = get_client_ip(self.request)
-        messages.info(
-            self.request,
-            _('Your report has been sent to an administrator.')
-        )
+        messages.info(self.request, _("Your report has been sent to an administrator."))
         return super().form_valid(form)
