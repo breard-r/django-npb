@@ -67,21 +67,21 @@ class ReportModelTests(TestCase):
     def test_short_reason_under_limit(self):
         reason = "a" * 31
         r = self.get_dummy_report(reason=reason)
-        self.assertIs(len(r.short_reason()), len(reason))
+        self.assertEquals(len(r.short_reason()), len(reason))
 
     def test_short_reason_at_limit(self):
         reason = "a" * 32
         r = self.get_dummy_report(reason=reason)
-        self.assertIs(len(r.short_reason()), len(reason))
+        self.assertEquals(len(r.short_reason()), len(reason))
 
     def test_short_reason_over_limit(self):
         reason = "a" * 33
         r = self.get_dummy_report(reason=reason)
-        self.assertIs(len(r.short_reason()), 33)
-        self.assertTrue(r.short_reason()[-1:] == "…")
+        self.assertEquals(len(r.short_reason()), 33)
+        self.assertEquals(r.short_reason()[-1:], "…")
 
     def test_short_reason_way_over_limit(self):
         reason = "a" * 42
         r = self.get_dummy_report(reason=reason)
-        self.assertIs(len(r.short_reason()), 33)
-        self.assertTrue(r.short_reason()[-1:] == "…")
+        self.assertEquals(len(r.short_reason()), 33)
+        self.assertEquals(r.short_reason()[-1:], "…")
