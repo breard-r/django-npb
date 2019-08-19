@@ -25,5 +25,5 @@ install:
     - pipenv install Django==$DJANGO_VERSION
 
 script:
-    - pipenv run python -m django --version
+    - pipenv run pip freeze
     - pipenv run python manage.py test npb
