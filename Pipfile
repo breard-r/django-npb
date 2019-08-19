@@ -7,9 +7,9 @@ name = "pypi"
 
 [packages]
 
-django = "*"
-pygments = "*"
-pytimeparse = "*"
+django = "~= 2.0"
+pygments = "~= 2.4"
+pytimeparse = "~= 1.1"
 
 
 [dev-packages]
