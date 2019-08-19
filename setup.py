@@ -21,7 +21,6 @@ setup(
         "Framework :: Django",
         "Framework :: Django :: 2.0",
         "License :: CeCILL-B Free Software License Agreement (CECILL-B)",
-        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
@@ -42,6 +41,6 @@ setup(
         ]
     },
     install_requires=["Django", "Pygments", "pytimeparse"],
-    python_requires="~=3.4",
+    python_requires="~=3.5",
     data_files=[("license", ["LICENSE-EN.txt", "LICENSE-FR.txt"])],
 )
