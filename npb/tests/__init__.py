@@ -1,2 +1,2 @@
 from .templatetags import RecentPastesTemplateTagTest
-from .models import PasteModelTests
+from .models import PasteModelTests, ReportModelTests
