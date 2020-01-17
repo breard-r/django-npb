@@ -7,7 +7,7 @@ name = "pypi"
 
 [packages]
 
-django = "~= 2.0"
+django = ">= 2.2, <4.0"
 pygments = "~= 2.5"
 pytimeparse = "~= 1.1"
 

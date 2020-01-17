@@ -19,11 +19,13 @@ setup(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Framework :: Django",
-        "Framework :: Django :: 2.0",
+        "Framework :: Django :: 2.2",
+        "Framework :: Django :: 3.0",
         "License :: CeCILL-B Free Software License Agreement (CECILL-B)",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
@@ -40,7 +42,7 @@ setup(
             "templates/npb/*.html",
         ]
     },
-    install_requires=["Django~=2.0", "Pygments~=2.4", "pytimeparse~=1.1"],
+    install_requires=["Django>= 2.2,<4.0", "Pygments~=2.4", "pytimeparse~=1.1"],
     python_requires="~=3.5",
     data_files=[("license", ["LICENSE-EN.txt", "LICENSE-FR.txt"])],
 )

@@ -4,19 +4,17 @@ python:
     - "3.5"
     - "3.6"
     - "3.7"
-    - "3.7-dev"
+    - "3.8"
     - "3.8-dev"
     - "nightly"
     - "pypy3"
 
 env:
-    - DJANGO_VERSION=2.0
-    - DJANGO_VERSION=2.1
     - DJANGO_VERSION=2.2
+    - DJANGO_VERSION=3.0
 
 matrix:
     allow_failures:
-        - python: "3.7-dev"
         - python: "3.8-dev"
         - python: "nightly"
 
