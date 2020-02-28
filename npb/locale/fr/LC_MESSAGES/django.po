@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-24 14:37+0100\n"
-"PO-Revision-Date: 2018-02-24 14:37+0100\n"
+"POT-Creation-Date: 2020-02-28 17:00+0100\n"
+"PO-Revision-Date: 2020-02-28 17:00+0100\n"
 "Last-Translator: Rodolphe Bréard <rodolphe@what.tf>\n"
 "Language-Team: Rodolphe Bréard <rodolphe@what.tf>\n"
 "Language: fr\n"
@@ -12,60 +12,60 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: admin.py:19 admin.py:48
+#: admin.py:26 admin.py:75
 msgid "Meta"
 msgstr "Méta"
 
-#: admin.py:23 admin.py:52
+#: admin.py:38 admin.py:88
 msgid "Paste"
 msgstr "Note"
 
-#: admin.py:24
+#: admin.py:39
 msgid "Administration"
 msgstr "Administration"
 
-#: admin.py:73
+#: admin.py:116
 msgid "view this paste in the admin panel"
 msgstr "voir cette note dans l'outil d'administration"
 
-#: admin.py:83
+#: admin.py:127
 msgid "not suspended"
 msgstr "non suspendu"
 
-#: admin.py:85
+#: admin.py:129
 #, python-format
 msgid "paste suspended: %(reason)s"
 msgstr "note suspendue: %(reason)s"
 
-#: forms.py:12
+#: forms.py:15
 msgid "15 minutes"
 msgstr "15 minutes"
 
-#: forms.py:13
+#: forms.py:16
 msgid "1 hour"
 msgstr "1 heure"
 
-#: forms.py:14
+#: forms.py:17
 msgid "1 day"
 msgstr "1 jour"
 
-#: forms.py:15
+#: forms.py:18
 msgid "1 week"
 msgstr "1 semaine"
 
-#: forms.py:16
+#: forms.py:19
 msgid "30 days"
 msgstr "30 jours"
 
-#: forms.py:17
+#: forms.py:20
 msgid "365 days"
 msgstr "365 jours"
 
-#: forms.py:18
+#: forms.py:21
 msgid "never"
 msgstr "jamais"
 
-#: forms.py:45
+#: forms.py:47
 msgid "expiration"
 msgstr "Expiration"
 
@@ -73,43 +73,43 @@ msgstr "Expiration"
 msgid "Your email"
 msgstr "Votre email"
 
-#: models.py:15
+#: models.py:13
 msgid "public"
 msgstr "publique"
 
-#: models.py:16
+#: models.py:14
 msgid "unlisted"
 msgstr "non-listée"
 
-#: models.py:17
+#: models.py:15
 msgid "private"
 msgstr "privée"
 
-#: models.py:21
+#: models.py:22
 msgid "illicit content"
 msgstr "contenu illicite"
 
-#: models.py:22
+#: models.py:23
 msgid "explicit content"
 msgstr "contenu choquant"
 
-#: models.py:23
+#: models.py:24
 msgid "copyright infrigment"
 msgstr "infraction au droit d'auteur"
 
-#: models.py:24
+#: models.py:25
 msgid "private information exposure"
 msgstr "publication d'informations privées"
 
-#: models.py:25
+#: models.py:26
 msgid "other"
 msgstr "autre"
 
-#: models.py:28
+#: models.py:30
 msgid "auto detect"
 msgstr "détection automatique"
 
-#: models.py:37
+#: models.py:39
 msgid "identifier"
 msgstr "identifiant"
 
@@ -117,83 +117,83 @@ msgstr "identifiant"
 msgid "suspended paste"
 msgstr "note suspendue"
 
-#: models.py:48
+#: models.py:45
 msgid "suspension reason"
 msgstr "raison de la suspension"
 
-#: models.py:54
+#: models.py:51
 msgid "exposure"
 msgstr "exposition"
 
-#: models.py:59
+#: models.py:54
 msgid "created on"
 msgstr "créée le"
 
-#: models.py:64
+#: models.py:57
 msgid "edited on"
 msgstr "éditée le"
 
-#: models.py:69
+#: models.py:60
 msgid "expiration date"
 msgstr "date d'expiration"
 
-#: models.py:76 models.py:137
+#: models.py:67 models.py:117
 msgid "author"
 msgstr "auteur"
 
-#: models.py:81
+#: models.py:70
 msgid "author's IP address"
 msgstr "adresse IP de l'auteur"
 
-#: models.py:87
+#: models.py:73
 msgid "language"
 msgstr "langage"
 
-#: models.py:93
+#: models.py:76
 msgid "title"
 msgstr "titre"
 
-#: models.py:95
+#: models.py:78
 msgid "content"
 msgstr "contenu"
 
-#: models.py:124
+#: models.py:104
 msgid "paste"
 msgstr "note"
 
-#: models.py:125
+#: models.py:105
 msgid "pastes"
 msgstr "notes"
 
-#: models.py:139
+#: models.py:119
 msgid "reporter's email"
 msgstr "adresse email du signalant"
 
-#: models.py:143
+#: models.py:121
 msgid "reporter's IP address"
 msgstr "adresse IP du signalant"
 
-#: models.py:148
+#: models.py:124
 msgid "reported on"
 msgstr "signalée le"
 
-#: models.py:153
+#: models.py:127
 msgid "reported paste"
 msgstr "note signalée"
 
-#: models.py:158
+#: models.py:130
 msgid "category name"
 msgstr "Catégorie"
 
-#: models.py:160
+#: models.py:132
 msgid "reason"
 msgstr "raison"
 
-#: models.py:173
+#: models.py:145
 msgid "report"
 msgstr "signalement"
 
-#: models.py:174
+#: models.py:146
 msgid "reports"
 msgstr "signalements"
 
@@ -215,7 +215,7 @@ msgid "Recent pastes"
 msgstr "Notes récentes"
 
 #: templates/npb/base.html:49 templates/npb/paste_detail.html:9
-#: templates/npb/paste_detail.html:17
+#: templates/npb/paste_detail.html:13
 msgid "Untitled"
 msgstr "Sans titre"
 
@@ -230,35 +230,39 @@ msgid ""
 "                    You are free to use, edit and redistribute this software "
 "provided you properly mention the original author."
 msgstr ""
-"Django neo-pastebin est un logiciel libre disponible sous la licence <a href"
-"=\"http://cecill.info/\" target=\"_blank\">CeCILL-B</a>.<br />\n"
-"Vous êtes libre d'utiliser, modifier et redistribuer ce logiciel sous réserve "
-"de correctement citer l'auteur d'origine."
+"Django neo-pastebin est un logiciel libre disponible sous la licence <a href="
+"\"http://cecill.info/\" target=\"_blank\">CeCILL-B</a>.<br />\n"
+"Vous êtes libre d'utiliser, modifier et redistribuer ce logiciel sous "
+"réserve de correctement citer l'auteur d'origine."
 
-#: templates/npb/paste_detail.html:14
-msgid "This paste has been suspended."
-msgstr "Cette note a été suspendue"
-
-#: templates/npb/paste_detail.html:21
+#: templates/npb/paste_detail.html:17
 msgid "anonymous"
 msgstr "anonyme"
 
-#: templates/npb/paste_detail.html:22
+#: templates/npb/paste_detail.html:18
 #, python-format
 msgid "By %(author)s on %(date)s"
 msgstr "Par %(author)s le %(date)s"
 
-#: templates/npb/paste_detail.html:26
+#: templates/npb/paste_detail.html:22
 #, python-format
 msgid "Edited on %(date)s"
 msgstr "Éditée le %(date)s"
 
-#: templates/npb/paste_detail.html:31
+#: templates/npb/paste_detail.html:27
 #, python-format
 msgid "Expires on %(date)s"
 msgstr "Expire le %(date)s"
 
-#: templates/npb/paste_detail.html:36
+#: templates/npb/paste_detail.html:32
+msgid "This paste has been suspended."
+msgstr "Cette note a été suspendue"
+
+#: templates/npb/paste_detail.html:33
+msgid "No reason provided"
+msgstr "Aucune raison n'a été indiqué"
+
+#: templates/npb/paste_detail.html:37
 msgid "report this paste"
 msgstr "signaler cette note"
 
@@ -270,10 +274,10 @@ msgstr "Envoyer"
 msgid "Report paste"
 msgstr "Signalement d'une note"
 
-#: views.py:55
+#: views.py:69
 msgid "Your paste has been created."
 msgstr "Votre note a été créée."
 
-#: views.py:71
+#: views.py:83
 msgid "Your report has been sent to an administrator."
 msgstr "Votre signalement a été envoyé à un administrateur."
