@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.core.exceptions import PermissionDenied
 from django.utils.translation import gettext_lazy as _
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
@@ -28,8 +29,9 @@ class ShowPasteView(generic.DetailView):
                 not self.request.user.is_staff,
             ]
         )
-        expired = paste.expire_on < timezone.now()
-        if restricted or expired:
+        if restricted:
+            raise PermissionDenied()
+        if paste.expire_on < timezone.now():
             raise Http404()
         return paste
 
