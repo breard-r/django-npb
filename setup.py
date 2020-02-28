@@ -9,7 +9,7 @@ with open(path.join(base_dir, "README.rst"), encoding="utf-8") as f:
 
 setup(
     name="django-npb",
-    version="1.0.4",
+    version="1.1.0",
     description="Pastebin module for Django",
     long_description=long_description,
     url="https://github.com/breard-r/django-npb",
