@@ -10,10 +10,6 @@
 
 {% block content %}
 <div>
-    {% if paste.is_suspended %}
-    <h1>{% trans 'This paste has been suspended.' %}</h1>
-    <p>{{ paste.suspension_reason }}</p>
-    {% else %}
     {% trans "Untitled" as untitled %}
     <h1>{{ paste.title|default:untitled }}</h1>
 
@@ -32,10 +28,16 @@
     {% endif %}
     </p>
 
+    {% if paste.is_suspended %}
+    <h2>{% trans 'This paste has been suspended.' %}</h2>
+    {% trans "No reason provided" as no_reason %}
+    <p class="legend">{{ paste.suspension_reason|default:no_reason }}</p>
+    {% else %}
     <div class="report-link">
         <a href="{% url 'npb:report_paste' paste.uuid %}">{% trans 'report this paste'|capfirst %}</a>
     </div>
-    {{ paste.formated_content|safe }}
     {% endif %}
+
+    {{ paste.formated_content|safe }}
 </div>
 {% endblock %}

@@ -21,15 +21,16 @@ class ShowPasteView(generic.DetailView):
 
     def get_object(self, queryset=None):
         paste = super().get_object(queryset=queryset)
+        is_staff = self.request.user.is_superuser or self.request.user.is_staff
         restricted = all(
             [
                 paste.exposure == "private",
                 paste.author != self.request.user,
-                not self.request.user.is_superuser,
-                not self.request.user.is_staff,
+                not is_staff,
             ]
         )
-        if restricted:
+        suspended = paste.is_suspended and not is_staff
+        if restricted or suspended:
             raise PermissionDenied()
         if paste.expire_on < timezone.now():
             raise Http404()
