@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.utils.translation import gettext_lazy as _
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
+from django.utils import timezone
 from django.views import generic
 from django.http import Http404
 from django.conf import settings
@@ -27,7 +28,8 @@ class ShowPasteView(generic.DetailView):
                 not self.request.user.is_staff,
             ]
         )
-        if restricted:
+        expired = paste.expire_on < timezone.now()
+        if restricted or expired:
             raise Http404()
         return paste
 
