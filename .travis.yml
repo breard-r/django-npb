@@ -17,10 +17,7 @@ jobs:
     exclude:
         - python: "3.5"
           env: DJANGO_VERSION=3.0
-
-matrix:
     allow_failures:
-        - python: "3.5"
         - python: "3.8-dev"
         - python: "nightly"
 
