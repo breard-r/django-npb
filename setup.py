@@ -42,7 +42,7 @@ setup(
             "templates/npb/*.html",
         ]
     },
-    install_requires=["Django>=2.2,<4.0", "Pygments~=2.4", "pytimeparse~=1.1"],
+    install_requires=["Django>=2.2,<4.0", "Pygments~=2.6", "pytimeparse~=1.1"],
     python_requires="~=3.5",
     data_files=[("license", ["LICENSE-EN.txt", "LICENSE-FR.txt"])],
 )
