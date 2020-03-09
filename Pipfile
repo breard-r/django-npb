@@ -8,7 +8,7 @@ name = "pypi"
 [packages]
 
 django = ">= 2.2, <4.0"
-pygments = "~= 2.5"
+pygments = "~= 2.6"
 pytimeparse = "~= 1.1"
 
 
